@@ -8,41 +8,30 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.tealAccent,
         body: SafeArea(
           child: Column(
-            //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            //crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Container(
-                color: Colors.green,
-                height: 100.0,
-                width: 100.0,
-                child: Text('Aima'),
+              CircleAvatar(
+                backgroundImage: AssetImage('images/AA.png'),
+                backgroundColor: Colors.white,
+                radius: 70.0,
               ),
-              SizedBox(
-                height: 10.0,
+              Text(
+                'Aima Zubair',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontFamily: 'Pacifico',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30.0,
+                ),
               ),
-              Container(
-                color: Colors.white,
-                height: 100.0,
-                width: 100.0,
-                child: Text('Aima'),
-              ),
-              SizedBox(
-                height: 10.0,
-              ),
-              Container(
-                color: Colors.blue,
-                height: 100.0,
-                width: 100.0,
-                child: Text('Aima'),
-              ),
-              Container(
-                width: double.infinity,
-                height: 10.0,
-                color: Colors.white,
+              Text(
+                'FLUTTER PROGRAMMER',
+                style: TextStyle(
+                  letterSpacing: 3.0,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ],
           ),
