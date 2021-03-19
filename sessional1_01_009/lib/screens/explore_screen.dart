@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:sessional1_01_009/components/main.dart';
 
 class Explore extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50.0,
-      color: Colors.black45,
+      height: 650.0,
+      color: Colors.black87,
       child: Column(
         children: <Widget>[
           Container(
@@ -26,6 +27,7 @@ class Explore extends StatelessWidget {
               ],
             ),
           ),
+          Main(),
         ],
       ),
     );
