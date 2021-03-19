@@ -32,30 +32,34 @@ class MyApp extends StatelessWidget {
             ),
           ],
         ),
-        body: Container(
-          color: Colors.tealAccent,
-          height: 150.0,
-          child: Row(
-            children: <Widget>[
-              Container(
-                alignment: Alignment.center,
-                height: 35.0,
-                width: 300.0,
-                child: Column(
-                  children: <Widget>[
-                    Text(
-                      "4 People",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 30.0,
-                      ),
+        body: Stack(
+          children: <Widget>[
+            Container(
+              color: Colors.black,
+              height: 400.0,
+              child: Row(
+                children: <Widget>[
+                  Container(
+                    color: Colors.teal,
+                    height: 700.0,
+                    child: Stack(
+                      children: <Widget>[
+                        Column(
+                            // children: <Widget>[
+                            // Text(
+                            //  "4 People",
+                            //style: TextStyle(
+                            //  fontWeight: FontWeight.bold,
+                            //  fontSize: 35.0,
+                            //    ),
+                            ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              Icon(Icons.arrow_forward_ios),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
