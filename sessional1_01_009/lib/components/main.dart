@@ -10,7 +10,7 @@ class Main extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-              height: 175.0,
+              height: 150.0,
               width: MediaQuery.of(context).size.width,
               child: customCard(
                   "Nature`s Light", "450 Spots", Icons.access_alarm, "1"),
@@ -23,7 +23,7 @@ class Main extends StatelessWidget {
             Column(
               children: <Widget>[
                 Container(
-                  height: 250.0,
+                  height: 200.0,
                   width: 194.0,
                   child: customCard(
                       "Cultural", "257 Spots", Icons.accessibility, "2"),
@@ -43,7 +43,7 @@ class Main extends StatelessWidget {
                       Icons.camera_enhance_outlined, "4"),
                 ),
                 Container(
-                  height: 250.0,
+                  height: 200.0,
                   width: 194.0,
                   child: customCard(
                       "Sun and Sand", "147 Spots", Icons.brightness_5, "5"),
