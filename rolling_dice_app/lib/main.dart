@@ -40,10 +40,15 @@ class _DiceState extends State<Dice> {
   int dice_no1 = 1;
   int dice_no2 = 1;
   int dice_no3 = 1;
+  int sum_1 = 0;
+  int sum_2 = 0;
+  int sum_3 = 0;
+  int sum_4 = 0;
   void update() {
     setState(() {
       //Random.nextInt(n) returns random integer rom 0 to n-1
       dice_no = Random().nextInt(6) + 1;
+      sum_1 = sum_1 + dice_no;
     });
   }
 
@@ -51,6 +56,7 @@ class _DiceState extends State<Dice> {
     setState(() {
       //Random.nextInt(n) returns random integer rom 0 to n-1
       dice_no1 = Random().nextInt(6) + 1;
+      sum_2 = sum_2 + dice_no1;
     });
   }
 
@@ -58,6 +64,7 @@ class _DiceState extends State<Dice> {
     setState(() {
       //Random.nextInt(n) returns random integer rom 0 to n-1
       dice_no2 = Random().nextInt(6) + 1;
+      sum_3 = sum_3 + dice_no2;
     });
   }
 
@@ -65,6 +72,7 @@ class _DiceState extends State<Dice> {
     setState(() {
       //Random.nextInt(n) returns random integer rom 0 to n-1
       dice_no3 = Random().nextInt(6) + 1;
+      sum_4 = sum_4 + dice_no3;
     });
   }
 
@@ -86,48 +94,105 @@ class _DiceState extends State<Dice> {
         ),
         Row(
           children: <Widget>[
-            Container(
-              padding: EdgeInsets.only(top: 30.0, left: 10.0),
-              height: 150.0,
-              child: FlatButton(
-                  child: Image.asset('images/dice$dice_no.png'),
-                  onPressed: () {
-                    update();
-                  }),
+            Column(
+              children: <Widget>[
+                Text(
+                  'Player 1',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.only(top: 20.0, left: 10.0),
+                  height: 150.0,
+                  child: FlatButton(
+                      child: Image.asset('images/dice$dice_no.png'),
+                      onPressed: () {
+                        update();
+                      }),
+                ),
+              ],
             ),
-            Container(
-              padding: EdgeInsets.only(top: 30.0, left: 40.0),
-              height: 150.0,
-              child: FlatButton(
-                  child: Image.asset('images/dice$dice_no1.png'),
-                  onPressed: () {
-                    update2();
-                  }),
+            Column(
+              children: <Widget>[
+                Text(
+                  'Player 2',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.only(top: 20.0, left: 40.0),
+                  height: 150.0,
+                  child: FlatButton(
+                      child: Image.asset('images/dice$dice_no1.png'),
+                      onPressed: () {
+                        update2();
+                      }),
+                ),
+              ],
             ),
           ],
         ),
         Row(
           children: <Widget>[
-            Container(
-              padding: EdgeInsets.only(top: 50.0, left: 10.0),
-              height: 170.0,
-              child: FlatButton(
-                  child: Image.asset('images/dice$dice_no2.png'),
-                  onPressed: () {
-                    update3();
-                  }),
+            Column(
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.only(top: 20.0),
+                  child: Text(
+                    'Player 3',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.only(top: 36.0, left: 10.0),
+                  height: 170.0,
+                  child: FlatButton(
+                      child: Image.asset('images/dice$dice_no2.png'),
+                      onPressed: () {
+                        update3();
+                      }),
+                ),
+              ],
             ),
-            Container(
-              padding: EdgeInsets.only(top: 50.0, left: 40.0),
-              height: 170.0,
-              child: FlatButton(
-                  child: Image.asset('images/dice$dice_no3.png'),
-                  onPressed: () {
-                    update4();
-                  }),
+            Column(
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.only(top: 20.0),
+                  child: Text(
+                    'Player 4',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.only(
+                    top: 35.0,
+                    left: 35.0,
+                  ),
+                  height: 170.0,
+                  child: FlatButton(
+                      child: Image.asset('images/dice$dice_no3.png'),
+                      onPressed: () {
+                        update4();
+                      }),
+                ),
+              ],
             ),
           ],
         ),
+        Padding(
+          padding: ,
+        ),
+
       ],
     );
   }
