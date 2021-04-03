@@ -50,7 +50,6 @@ class _DiceState extends State<Dice> {
     setState(() {
       //Random.nextInt(n) returns random integer rom 0 to n-1
       dice_no = Random().nextInt(6) + 1;
-      sum_1 = dice_no;
       sum_1 = sum_1 + dice_no;
     });
   }
@@ -76,7 +75,6 @@ class _DiceState extends State<Dice> {
       //Random.nextInt(n) returns random integer rom 0 to n-1
       dice_no3 = Random().nextInt(6) + 1;
       sum_4 = sum_4 + dice_no3;
-      count++;
     });
   }
 
@@ -89,12 +87,11 @@ class _DiceState extends State<Dice> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Padding(
           padding: EdgeInsets.all(10.0),
           child: Text(
-            'Total Count = 10',
+            'Count = 10',
             style: TextStyle(
               color: Colors.white,
               fontSize: 20.0,
@@ -119,7 +116,11 @@ class _DiceState extends State<Dice> {
                   child: FlatButton(
                       child: Image.asset('images/dice$dice_no.png'),
                       onPressed: () {
-                        update();
+                        if (count == 10) {
+                          disable();
+                        } else {
+                          update();
+                        }
                       }),
                 ),
               ],
@@ -139,7 +140,11 @@ class _DiceState extends State<Dice> {
                   child: FlatButton(
                       child: Image.asset('images/dice$dice_no1.png'),
                       onPressed: () {
-                        update2();
+                        if (count == 10) {
+                          disable();
+                        } else {
+                          update2();
+                        }
                       }),
                 ),
               ],
@@ -166,7 +171,11 @@ class _DiceState extends State<Dice> {
                   child: FlatButton(
                       child: Image.asset('images/dice$dice_no2.png'),
                       onPressed: () {
-                        update3();
+                        if (count == 10) {
+                          disable();
+                        } else {
+                          update3();
+                        }
                       }),
                 ),
               ],
@@ -194,8 +203,10 @@ class _DiceState extends State<Dice> {
                       onPressed: () {
                         if (count == 10) {
                           disable();
+                        } else {
+                          update4();
+                          count++;
                         }
-                        update4();
                       }),
                 ),
               ],
@@ -209,7 +220,7 @@ class _DiceState extends State<Dice> {
                 Padding(
                   padding: EdgeInsets.only(top: 30.0, left: 40.0),
                   child: Text(
-                    'Player 1 : ' + sum_1.toString(),
+                    'Player 1 = ' + sum_1.toString(),
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -224,7 +235,7 @@ class _DiceState extends State<Dice> {
                 Padding(
                   padding: EdgeInsets.only(top: 30.0, left: 80.0),
                   child: Text(
-                    'Player 2 : ' + sum_2.toString(),
+                    'Player 2 = ' + sum_2.toString(),
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -243,7 +254,7 @@ class _DiceState extends State<Dice> {
                 Padding(
                   padding: EdgeInsets.only(top: 30.0, left: 40.0),
                   child: Text(
-                    'Player 3 : ' + sum_3.toString(),
+                    'Player 3 = ' + sum_3.toString(),
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -258,7 +269,7 @@ class _DiceState extends State<Dice> {
                 Padding(
                   padding: EdgeInsets.only(top: 30.0, left: 80.0),
                   child: Text(
-                    'Player 4 : ' + sum_4.toString(),
+                    'Player 4 = ' + sum_4.toString(),
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
