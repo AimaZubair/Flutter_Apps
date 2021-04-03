@@ -44,10 +44,13 @@ class _DiceState extends State<Dice> {
   int sum_2 = 0;
   int sum_3 = 0;
   int sum_4 = 0;
+  int count = 0;
+  bool _buttondisabled = false;
   void update() {
     setState(() {
       //Random.nextInt(n) returns random integer rom 0 to n-1
       dice_no = Random().nextInt(6) + 1;
+      sum_1 = dice_no;
       sum_1 = sum_1 + dice_no;
     });
   }
@@ -73,6 +76,13 @@ class _DiceState extends State<Dice> {
       //Random.nextInt(n) returns random integer rom 0 to n-1
       dice_no3 = Random().nextInt(6) + 1;
       sum_4 = sum_4 + dice_no3;
+      count++;
+    });
+  }
+
+  void disable() {
+    setState(() {
+      _buttondisabled = true;
     });
   }
 
@@ -182,6 +192,9 @@ class _DiceState extends State<Dice> {
                   child: FlatButton(
                       child: Image.asset('images/dice$dice_no3.png'),
                       onPressed: () {
+                        if (count == 10) {
+                          disable();
+                        }
                         update4();
                       }),
                 ),
@@ -189,10 +202,74 @@ class _DiceState extends State<Dice> {
             ),
           ],
         ),
-        Padding(
-          padding: ,
+        Row(
+          children: <Widget>[
+            Column(
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.only(top: 30.0, left: 40.0),
+                  child: Text(
+                    'Player 1 : ' + sum_1.toString(),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20.0,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Column(
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.only(top: 30.0, left: 80.0),
+                  child: Text(
+                    'Player 2 : ' + sum_2.toString(),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20.0,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
-
+        Row(
+          children: <Widget>[
+            Column(
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.only(top: 30.0, left: 40.0),
+                  child: Text(
+                    'Player 3 : ' + sum_3.toString(),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20.0,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Column(
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.only(top: 30.0, left: 80.0),
+                  child: Text(
+                    'Player 4 : ' + sum_4.toString(),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20.0,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ],
     );
   }
