@@ -44,13 +44,17 @@ class _DiceState extends State<Dice> {
   int sum_2 = 0;
   int sum_3 = 0;
   int sum_4 = 0;
-  int count = 0;
+  int count_1 = 0;
+  int count_2 = 0;
+  int count_3 = 0;
+  int count_4 = 0;
   bool _buttondisabled = false;
   void update() {
     setState(() {
       //Random.nextInt(n) returns random integer rom 0 to n-1
       dice_no = Random().nextInt(6) + 1;
       sum_1 = sum_1 + dice_no;
+      print(count_1);
     });
   }
 
@@ -104,7 +108,7 @@ class _DiceState extends State<Dice> {
             Column(
               children: <Widget>[
                 Text(
-                  'Player 1',
+                  'Player 1 Click : $count_1',
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
@@ -116,10 +120,15 @@ class _DiceState extends State<Dice> {
                   child: FlatButton(
                       child: Image.asset('images/dice$dice_no.png'),
                       onPressed: () {
-                        if (count == 10) {
+                        if (count_1 == 11) {
                           disable();
                         } else {
                           update();
+                          if (dice_no == 6) {
+                            count_1;
+                          } else {
+                            count_1++;
+                          }
                         }
                       }),
                 ),
@@ -128,7 +137,7 @@ class _DiceState extends State<Dice> {
             Column(
               children: <Widget>[
                 Text(
-                  'Player 2',
+                  'Player 2 Click : $count_2',
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
@@ -140,10 +149,15 @@ class _DiceState extends State<Dice> {
                   child: FlatButton(
                       child: Image.asset('images/dice$dice_no1.png'),
                       onPressed: () {
-                        if (count == 10) {
+                        if (count_2 == 11) {
                           disable();
                         } else {
                           update2();
+                          if (dice_no1 == 6) {
+                            count_2;
+                          } else {
+                            count_2++;
+                          }
                         }
                       }),
                 ),
@@ -158,7 +172,7 @@ class _DiceState extends State<Dice> {
                 Padding(
                   padding: EdgeInsets.only(top: 20.0),
                   child: Text(
-                    'Player 3',
+                    'Player 3 Click : $count_3',
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -171,10 +185,15 @@ class _DiceState extends State<Dice> {
                   child: FlatButton(
                       child: Image.asset('images/dice$dice_no2.png'),
                       onPressed: () {
-                        if (count == 10) {
+                        if (count_3 == 11) {
                           disable();
                         } else {
                           update3();
+                          if (dice_no2 == 6) {
+                            count_3;
+                          } else {
+                            count_3++;
+                          }
                         }
                       }),
                 ),
@@ -185,7 +204,7 @@ class _DiceState extends State<Dice> {
                 Padding(
                   padding: EdgeInsets.only(top: 20.0),
                   child: Text(
-                    'Player 4',
+                    'Player 4 Click : $count_4',
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -201,11 +220,15 @@ class _DiceState extends State<Dice> {
                   child: FlatButton(
                       child: Image.asset('images/dice$dice_no3.png'),
                       onPressed: () {
-                        if (count == 10) {
+                        if (count_4 == 11) {
                           disable();
                         } else {
                           update4();
-                          count++;
+                          if (dice_no == 6) {
+                            count_4;
+                          } else {
+                            count_4++;
+                          }
                         }
                       }),
                 ),
