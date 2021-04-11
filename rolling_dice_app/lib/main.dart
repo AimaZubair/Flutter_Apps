@@ -36,6 +36,7 @@ class Dice extends StatefulWidget {
 
 class _DiceState extends State<Dice> {
   // ignore: non_constant_identifier_names
+  int flag = 0;
   int dice_no = 1;
   int dice_no1 = 1;
   int dice_no2 = 1;
@@ -52,33 +53,81 @@ class _DiceState extends State<Dice> {
   void update() {
     setState(() {
       //Random.nextInt(n) returns random integer rom 0 to n-1
-      dice_no = Random().nextInt(6) + 1;
-      sum_1 = sum_1 + dice_no;
-      print(count_1);
+      if (flag == 0) {
+        dice_no = Random().nextInt(6) + 1;
+        sum_1 = sum_1 + dice_no;
+        if (dice_no == 6) {
+          count_1;
+          flag = 0;
+        } else {
+          count_1++;
+          flag = 1;
+          if (flag == 1) {
+            _DiceState();
+          }
+        }
+      }
     });
   }
 
   void update2() {
     setState(() {
       //Random.nextInt(n) returns random integer rom 0 to n-1
-      dice_no1 = Random().nextInt(6) + 1;
-      sum_2 = sum_2 + dice_no1;
+      if (flag == 1) {
+        dice_no1 = Random().nextInt(6) + 1;
+        sum_2 = sum_2 + dice_no1;
+        if (dice_no1 == 6) {
+          count_2;
+          flag = 1;
+        } else {
+          count_2++;
+          flag = 2;
+          if (flag == 2) {
+            _DiceState();
+          }
+        }
+      }
     });
   }
 
   void update3() {
     setState(() {
       //Random.nextInt(n) returns random integer rom 0 to n-1
-      dice_no2 = Random().nextInt(6) + 1;
-      sum_3 = sum_3 + dice_no2;
+      if (flag == 2) {
+        dice_no2 = Random().nextInt(6) + 1;
+        sum_3 = sum_3 + dice_no2;
+        if (dice_no2 == 6) {
+          count_3;
+          flag = 2;
+        } else {
+          count_3++;
+          flag = 3;
+          if (flag == 3) {
+            _DiceState();
+          }
+        }
+      }
     });
   }
 
   void update4() {
     setState(() {
       //Random.nextInt(n) returns random integer rom 0 to n-1
-      dice_no3 = Random().nextInt(6) + 1;
-      sum_4 = sum_4 + dice_no3;
+      if (flag == 3) {
+        dice_no3 = Random().nextInt(6) + 1;
+        sum_4 = sum_4 + dice_no3;
+        if (dice_no3 == 6) {
+          count_4;
+          flag = 3;
+        } else {
+          count_4++;
+          flag = 4;
+          if (flag == 4) {
+            _DiceState();
+            flag = 0;
+          }
+        }
+      }
     });
   }
 
@@ -120,15 +169,10 @@ class _DiceState extends State<Dice> {
                   child: FlatButton(
                       child: Image.asset('images/dice$dice_no.png'),
                       onPressed: () {
-                        if (count_1 == 11) {
+                        if (count_1 == 10) {
                           disable();
                         } else {
                           update();
-                          if (dice_no == 6) {
-                            count_1;
-                          } else {
-                            count_1++;
-                          }
                         }
                       }),
                 ),
@@ -149,15 +193,10 @@ class _DiceState extends State<Dice> {
                   child: FlatButton(
                       child: Image.asset('images/dice$dice_no1.png'),
                       onPressed: () {
-                        if (count_2 == 11) {
+                        if (count_2 == 10) {
                           disable();
                         } else {
                           update2();
-                          if (dice_no1 == 6) {
-                            count_2;
-                          } else {
-                            count_2++;
-                          }
                         }
                       }),
                 ),
@@ -185,15 +224,11 @@ class _DiceState extends State<Dice> {
                   child: FlatButton(
                       child: Image.asset('images/dice$dice_no2.png'),
                       onPressed: () {
-                        if (count_3 == 11) {
+                        setState(() {});
+                        if (count_3 == 10) {
                           disable();
                         } else {
                           update3();
-                          if (dice_no2 == 6) {
-                            count_3;
-                          } else {
-                            count_3++;
-                          }
                         }
                       }),
                 ),
@@ -220,15 +255,10 @@ class _DiceState extends State<Dice> {
                   child: FlatButton(
                       child: Image.asset('images/dice$dice_no3.png'),
                       onPressed: () {
-                        if (count_4 == 11) {
+                        if (count_4 == 10) {
                           disable();
                         } else {
                           update4();
-                          if (dice_no == 6) {
-                            count_4;
-                          } else {
-                            count_4++;
-                          }
                         }
                       }),
                 ),
