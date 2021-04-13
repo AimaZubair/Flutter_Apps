@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:xylophone_app/MyHomePage.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,13 +17,56 @@ class MyApp extends StatelessWidget {
 }
 
 class DropDown extends StatefulWidget {
+  static String holder = '';
+  static String holder_2 = '';
+  static List<Color> myList_1 = [];
+  static List<int> myList_2 = [];
+
   @override
   DropDownWidget createState() => DropDownWidget();
 }
 
 class DropDownWidget extends State<DropDown> {
-  String holder = '';
-  String holder_2 = '';
+  int count = 0;
+  void convertion(String color, String soundNumber) {
+    var clr_no;
+    var wav_no = DropDown.holder_2;
+    var number = int.parse(wav_no);
+    var clr = DropDown.holder;
+
+    if (clr == 'blue') {
+      clr_no = Color(0xff2196f3);
+      DropDown.myList_1.add(clr_no);
+    }
+    if (clr == 'green') {
+      clr_no = Color(0xff4caf50);
+      DropDown.myList_1.add(clr_no);
+    }
+    if (clr == 'purple') {
+      clr_no = Color(0xff9c27b0);
+      DropDown.myList_1.add(clr_no);
+    }
+    if (clr == 'pink') {
+      clr_no = Color(0xffe91e63);
+      DropDown.myList_1.add(clr_no);
+    }
+    if (clr == 'grey') {
+      clr_no = Color(0xff9e9e9e);
+      DropDown.myList_1.add(clr_no);
+    }
+    if (clr == 'teal') {
+      clr_no = Color(0xff009688);
+      DropDown.myList_1.add(clr_no);
+    }
+    if (clr == 'red') {
+      clr_no = Color(0xfff44336);
+      DropDown.myList_1.add(clr_no);
+    }
+    DropDown.myList_2.add(number);
+    print(DropDown.myList_2);
+    print(DropDown.myList_1);
+    print(count);
+  }
 
   String dropdownValue = 'blue';
   String dropdownValue_2 = '1';
@@ -35,7 +78,7 @@ class DropDownWidget extends State<DropDown> {
     'green',
     'purple',
     'pink',
-    'white',
+    'grey',
     'teal',
     'red'
   ];
@@ -43,8 +86,8 @@ class DropDownWidget extends State<DropDown> {
 
   void getDropDownItem() {
     setState(() {
-      holder = dropdownValue;
-      holder_2 = dropdownValue_2;
+      DropDown.holder = dropdownValue;
+      DropDown.holder_2 = dropdownValue_2;
     });
   }
 
@@ -61,72 +104,70 @@ class DropDownWidget extends State<DropDown> {
           ),
         ),
       ),
-      body: Column(
-        children: <Widget>[
-          DropdownButton(
-            value: dropdownValue,
-            icon: Icon(Icons.arrow_drop_down),
-            iconSize: 24,
-            elevation: 16,
-            style: TextStyle(color: Colors.red, fontSize: 18),
-            underline: Container(
-              height: 2,
-              color: Colors.deepPurpleAccent,
+      body: Center(
+        child: Column(
+          children: <Widget>[
+            DropdownButton(
+              value: dropdownValue,
+              icon: Icon(Icons.arrow_drop_down),
+              iconSize: 24,
+              elevation: 16,
+              style: TextStyle(color: Colors.red, fontSize: 18),
+              underline: Container(
+                height: 2,
+                color: Colors.deepPurpleAccent,
+              ),
+              onChanged: (String data) {
+                setState(() {
+                  dropdownValue = data;
+                });
+              },
+              items: colorName.map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
             ),
-            onChanged: (String data) {
-              setState(() {
-                dropdownValue = data;
-              });
-            },
-            items: colorName.map<DropdownMenuItem<String>>((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Text(value),
-              );
-            }).toList(),
-          ),
-          DropdownButton(
-            value: dropdownValue_2,
-            icon: Icon(Icons.arrow_drop_down),
-            iconSize: 24,
-            elevation: 16,
-            style: TextStyle(color: Colors.red, fontSize: 18),
-            underline: Container(
-              height: 2,
-              color: Colors.deepPurpleAccent,
+            DropdownButton(
+              value: dropdownValue_2,
+              icon: Icon(Icons.arrow_drop_down),
+              iconSize: 24,
+              elevation: 16,
+              style: TextStyle(color: Colors.red, fontSize: 18),
+              underline: Container(
+                height: 2,
+                color: Colors.deepPurpleAccent,
+              ),
+              onChanged: (String data) {
+                setState(() {
+                  dropdownValue_2 = data;
+                });
+              },
+              items: soundNo.map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
             ),
-            onChanged: (String data) {
-              setState(() {
-                dropdownValue_2 = data;
-              });
-            },
-            items: soundNo.map<DropdownMenuItem<String>>((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Text(value),
-              );
-            }).toList(),
-          ),
-          Padding(
-              padding: EdgeInsets.only(top: 30, bottom: 30),
-              child:
-                  //Printing Item on Text Widget
-                  Text('Selected Item = ' + '$holder',
-                      style: TextStyle(fontSize: 22, color: Colors.black))),
-          Padding(
-              padding: EdgeInsets.only(top: 30, bottom: 30),
-              child:
-                  //Printing Item on Text Widget
-                  Text('Selected Item = ' + '$holder_2',
-                      style: TextStyle(fontSize: 22, color: Colors.black))),
-          RaisedButton(
-            child: Text('Next'),
-            onPressed: getDropDownItem,
-            color: Colors.blue,
-            textColor: Colors.white,
-            padding: EdgeInsets.fromLTRB(12, 12, 12, 12),
-          ),
-        ],
+            RaisedButton(
+              child: Text('Next'),
+              onPressed: () {
+                if (count == 6) {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => XylophoneApp()));
+                }
+                count++;
+                getDropDownItem();
+                convertion(DropDown.holder, DropDown.holder_2);
+              },
+              color: Colors.blue,
+              textColor: Colors.white,
+              padding: EdgeInsets.fromLTRB(12, 12, 12, 12),
+            ),
+          ],
+        ),
       ),
     );
   }

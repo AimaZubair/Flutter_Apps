@@ -1,8 +1,11 @@
 import 'package:audioplayers/audio_cache.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:xylophone_app/main.dart';
 
 class XylophoneApp extends StatelessWidget {
+  //Color clr = DropDown.holder;
+
   void playSound(int soundNumber) {
     final player = AudioCache();
     player.play('note$soundNumber.wav');
@@ -28,13 +31,27 @@ class XylophoneApp extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              buildKey(color: Color($holder), soundNumber: 1),
-              buildKey(color: Colors.yellow[200], soundNumber: 2),
-              buildKey(color: Colors.tealAccent, soundNumber: 3),
-              buildKey(color: Colors.purple[200], soundNumber: 4),
-              buildKey(color: Colors.grey, soundNumber: 5),
-              buildKey(color: Colors.blueAccent, soundNumber: 6),
-              buildKey(color: Colors.orange[200], soundNumber: 7)
+              buildKey(
+                  color: DropDown.myList_1[0],
+                  soundNumber: DropDown.myList_2[0]),
+              buildKey(
+                  color: DropDown.myList_1[1],
+                  soundNumber: DropDown.myList_2[1]),
+              buildKey(
+                  color: DropDown.myList_1[2],
+                  soundNumber: DropDown.myList_2[2]),
+              buildKey(
+                  color: DropDown.myList_1[3],
+                  soundNumber: DropDown.myList_2[3]),
+              buildKey(
+                  color: DropDown.myList_1[4],
+                  soundNumber: DropDown.myList_2[4]),
+              buildKey(
+                  color: DropDown.myList_1[5],
+                  soundNumber: DropDown.myList_2[5]),
+              buildKey(
+                  color: DropDown.myList_1[6],
+                  soundNumber: DropDown.myList_2[6])
             ],
           ),
         ),
