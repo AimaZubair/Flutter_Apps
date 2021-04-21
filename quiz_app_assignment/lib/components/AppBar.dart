@@ -31,6 +31,13 @@ Widget appBar() {
         ),
         onPressed: () {},
       ),
+      IconButton(
+        icon: Icon(
+          Icons.close_rounded,
+          color: Colors.white,
+        ),
+        onPressed: () {},
+      ),
     ],
   );
 }
