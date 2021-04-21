@@ -1,0 +1,38 @@
+﻿
+table {
+    border-collapse: collapse;
+}
+
+table tr td {
+    border: 1px solid #1cc88a;
+}
+
+table tr th {
+    border: 1px solid #1cc88a;
+}
+
+
+.table-responsive {
+    overflow-x: hidden;
+}
+
+.pager li > a, .pager li > span {
+    border-radius: 0px;
+}
+
+.pagination-lg > li:last-child > a, .pagination-lg > li:last-child > span {
+    border-radius: 0px;
+}
+
+.pagination > .active > a, .pagination > .active > a:focus,
+.pagination > .active > a:hover, .pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+    background-color: #f6c23e;
+    border-color: #1cc88a;
+}
+
+.pagination > li > a, .pagination > li > span {
+    color: black;
+}
+

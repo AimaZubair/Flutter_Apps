@@ -31,14 +31,16 @@ class Splash extends StatelessWidget {
       title: Text(
         'FA17-BCS-009',
         style: TextStyle(
-          fontSize: 10.0,
+          fontSize: 30.0,
           fontWeight: FontWeight.bold,
+          fontFamily: 'FredokaOne',
+          color: Colors.deepPurple,
         ),
       ),
       image: Image.asset('images/AA.png'),
       loadingText: Text("Loading"),
       photoSize: 100.0,
-      loaderColor: Colors.blue,
+      loaderColor: Colors.deepPurpleAccent,
     );
   }
 }
