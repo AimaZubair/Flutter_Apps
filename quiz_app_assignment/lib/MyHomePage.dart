@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'Selection_one.dart';
+import 'Selection_two.dart';
 
 class MyHomePage extends StatelessWidget {
   @override
@@ -102,6 +103,11 @@ class _DropDownState extends State<DropDown> {
                     if (holder == 'True/False') {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) => TrueFalse()));
+                    } else {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => MultipleChoice()));
                     }
                   },
                   shape: RoundedRectangleBorder(

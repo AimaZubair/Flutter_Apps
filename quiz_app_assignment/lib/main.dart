@@ -26,7 +26,7 @@ class Splash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SplashScreen(
-      seconds: 3,
+      seconds: 6,
       navigateAfterSeconds: MyHomePage(),
       title: Text(
         'FA17-BCS-009',
@@ -37,7 +37,8 @@ class Splash extends StatelessWidget {
           color: Colors.deepPurple,
         ),
       ),
-      image: Image.asset('images/AA.png'),
+      image: Image.asset('assets/loading.gif'),
+      backgroundColor: Colors.black,
       loadingText: Text("Loading"),
       photoSize: 100.0,
       loaderColor: Colors.deepPurpleAccent,

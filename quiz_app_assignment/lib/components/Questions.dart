@@ -7,8 +7,8 @@ class Question {
   Question({
     this.id,
     this.question,
-    this.answer,
     this.options,
+    this.answer,
   });
 }
 
@@ -16,31 +16,31 @@ const List sample_data = [
   {
     'id': 1,
     'question': 'Some cats are actually allergic to humans',
-    'answer': 1,
-    'options': ['True', 'False']
+    'options': ['True', 'False'],
+    'answer_index': 0,
   },
   {
     'id': 2,
     'question': 'Some cats are actually allergic to humans',
-    'answer': 1,
-    'options': ['True', 'False']
+    'options': ['True', 'False'],
+    'answer_index': 1,
   },
   {
     'id': 3,
     'question': 'Some cats are actually allergic to humans',
-    'answer': 1,
-    'options': ['True', 'False']
+    'options': ['True', 'False'],
+    'answer_index': 1,
   },
   {
     'id': 4,
     'question': 'Some cats are actually allergic to humans',
-    'answer': 1,
-    'options': ['True', 'False']
+    'options': ['True', 'False'],
+    'answer_index': 1,
   },
   {
     'id': 5,
     'question': 'Some cats are actually allergic to humans',
-    'answer': 1,
-    'options': ['True', 'False']
+    'options': ['True', 'False'],
+    'answer_index': 1,
   }
 ];

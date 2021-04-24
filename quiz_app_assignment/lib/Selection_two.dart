@@ -2,29 +2,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:quiz_app_assignment/constant.dart';
-import 'package:quiz_app_assignment/components/progress_bar.dart';
+import 'package:quiz_app_assignment/components_2/progress_bar_2.dart';
 import 'components/AppBar.dart';
 import 'components/drawer.dart';
 import 'package:get/get.dart';
-import 'package:quiz_app_assignment/components/controller.dart';
-import 'package:quiz_app_assignment/components/question_card.dart';
+import 'package:quiz_app_assignment/components_2/controller_2.dart';
+import 'package:quiz_app_assignment/components_2/question_card_2.dart';
 
-class TrueFalse extends StatelessWidget {
+class MultipleChoice extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: TrueFQuiz(),
-    );
-  }
+  _MultipleChoiceState createState() => _MultipleChoiceState();
 }
 
-class TrueFQuiz extends StatefulWidget {
-  @override
-  _TrueFQuizState createState() => _TrueFQuizState();
-}
-
-class _TrueFQuizState extends State<TrueFQuiz> {
+class _MultipleChoiceState extends State<MultipleChoice> {
   QuestionController _questionController = Get.put(QuestionController());
   @override
   Widget build(BuildContext context) {
@@ -38,7 +28,8 @@ class _TrueFQuizState extends State<TrueFQuiz> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.all(30.0),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: kDefaultPadding),
                   child: ProgressBar(),
                 ),
               ],
@@ -46,7 +37,7 @@ class _TrueFQuizState extends State<TrueFQuiz> {
           ),
           SizedBox(height: kDefaultPadding),
           Padding(
-            padding: const EdgeInsets.only(top: 70.0, left: 30.0),
+            padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
             child: Obx(
               () => Text.rich(
                 TextSpan(
@@ -71,7 +62,7 @@ class _TrueFQuizState extends State<TrueFQuiz> {
           Divider(thickness: 1.5),
           SizedBox(height: kDefaultPadding),
           Padding(
-            padding: EdgeInsets.only(top: 130.0),
+            padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
             child: Expanded(
               child: PageView.builder(
                 // Block swipe to next qn
