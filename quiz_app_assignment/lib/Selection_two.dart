@@ -28,8 +28,8 @@ class _MultipleChoiceState extends State<MultipleChoice> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                  padding: const EdgeInsets.only(
+                      top: 10.0, left: 20.0, bottom: 20.0, right: 20.0),
                   child: ProgressBar(),
                 ),
               ],
@@ -37,7 +37,7 @@ class _MultipleChoiceState extends State<MultipleChoice> {
           ),
           SizedBox(height: kDefaultPadding),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+            padding: const EdgeInsets.only(top: 45.0, left: 20.0),
             child: Obx(
               () => Text.rich(
                 TextSpan(
@@ -62,7 +62,7 @@ class _MultipleChoiceState extends State<MultipleChoice> {
           Divider(thickness: 1.5),
           SizedBox(height: kDefaultPadding),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+            padding: EdgeInsets.only(top: 80.0),
             child: Expanded(
               child: PageView.builder(
                 // Block swipe to next qn

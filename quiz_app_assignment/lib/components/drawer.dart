@@ -1,32 +1,37 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:quiz_app_assignment/components/Contactus.dart';
 
-Widget drawer() {
-  return Drawer(
-    child: ListView(
-      padding: EdgeInsets.zero,
-      children: <Widget>[
-        _createHeader(),
-        _createDrawerItem(
-          icon: Icons.contacts,
-          text: 'Contact Us',
-        ),
-        _createDrawerItem(
-          icon: Icons.event,
-          text: 'Quiz Type',
-        ),
-        _createDrawerItem(
-          icon: Icons.note,
-          text: 'Notes',
-        ),
-        Divider(),
-        _createDrawerItem(
-            icon: Icons.collections_bookmark, text: 'Customize Quiz'),
-        Divider(),
-        _createDrawerItem(icon: Icons.bug_report, text: 'Report an issue'),
-      ],
-    ),
-  );
+class drawer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: <Widget>[
+          _createHeader(),
+          _createDrawerItem(
+              icon: Icons.contacts,
+              text: 'Contact Us',
+              onTap: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => contactus()))),
+          _createDrawerItem(
+            icon: Icons.event,
+            text: 'Quiz Type',
+          ),
+          _createDrawerItem(
+            icon: Icons.note,
+            text: 'Notes',
+          ),
+          Divider(),
+          _createDrawerItem(
+              icon: Icons.collections_bookmark, text: 'Customize Quiz'),
+          Divider(),
+          _createDrawerItem(icon: Icons.bug_report, text: 'Report an issue'),
+        ],
+      ),
+    );
+  }
 }
 
 Widget _createDrawerItem(
@@ -52,7 +57,7 @@ Widget _createHeader() {
       decoration: BoxDecoration(
           image: DecorationImage(
               fit: BoxFit.fill,
-              image: AssetImage('path/to/header_background.png'))),
+              image: AssetImage('assets/drawer_header_background.png'))),
       child: Stack(children: <Widget>[
         Positioned(
             bottom: 12.0,

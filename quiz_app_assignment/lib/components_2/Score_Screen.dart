@@ -3,12 +3,12 @@ import 'package:get/get.dart';
 import 'package:quiz_app_assignment/constant.dart';
 import 'package:flutter_svg/svg.dart';
 
-import 'controller.dart';
+import 'controller_2.dart';
 
 class ScoreScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    QuestionController_one _qnController = Get.put(QuestionController_one());
+    QuestionController _qnController = Get.put(QuestionController());
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,

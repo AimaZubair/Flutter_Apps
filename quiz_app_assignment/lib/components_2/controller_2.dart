@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 import 'package:quiz_app_assignment/components_2/Questions_2.dart';
-import 'package:quiz_app_assignment/components/Score.dart';
+import 'package:quiz_app_assignment/components_2/Score_Screen.dart';
 
 // We use get package for our state management
 

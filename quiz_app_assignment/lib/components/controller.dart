@@ -6,7 +6,7 @@ import 'package:quiz_app_assignment/components/Score.dart';
 
 // We use get package for our state management
 
-class QuestionController extends GetxController
+class QuestionController_one extends GetxController
     with SingleGetTickerProviderMixin {
   // Lets animated our progress bar
 

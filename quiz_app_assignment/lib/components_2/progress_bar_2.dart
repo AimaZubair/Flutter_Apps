@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:quiz_app_assignment/components/controller.dart';
+import 'package:quiz_app_assignment/components_2/controller_2.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../constant.dart';

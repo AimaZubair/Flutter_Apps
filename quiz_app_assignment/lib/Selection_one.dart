@@ -25,7 +25,7 @@ class TrueFQuiz extends StatefulWidget {
 }
 
 class _TrueFQuizState extends State<TrueFQuiz> {
-  QuestionController _questionController = Get.put(QuestionController());
+  QuestionController_one _questionController = Get.put(QuestionController_one());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
