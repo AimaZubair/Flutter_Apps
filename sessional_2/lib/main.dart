@@ -15,27 +15,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Splash(),
-    );
-  }
-}
-
-class Splash extends StatefulWidget {
-  const Splash({Key key}) : super(key: key);
-
-  @override
-  _SplashState createState() => _SplashState();
-}
-
-class _SplashState extends State<Splash> {
-  @override
-  Widget build(BuildContext context) {
-    return AnimatedSplashScreen(
-      duration: 5,
-      splash: 'images/images.png',
-      nextScreen: MyHomePage(),
-      pageTransitionType: PageTransitionType.topToBottom,
-      splashTransition: SplashTransition.sizeTransition,
+      home: AnimatedSplashScreen(
+        duration: 3000,
+        splashIconSize: 300.0,
+        splash: 'images/images.png',
+        nextScreen: MyHomePage(),
+        pageTransitionType: PageTransitionType.bottomToTop,
+        splashTransition: SplashTransition.sizeTransition,
+      ),
     );
   }
 }

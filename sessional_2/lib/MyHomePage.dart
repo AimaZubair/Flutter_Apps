@@ -1,12 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sessional_2/Simple.dart';
+import 'package:sessional_2/Complex.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return DropDown();
   }
 }
 
@@ -21,7 +23,7 @@ class _DropDownState extends State<DropDown> {
 
   List<String> Name = [
     'Simple',
-    'Hard',
+    'Complex',
   ];
 
   void getDropDownItem() {
@@ -34,10 +36,10 @@ class _DropDownState extends State<DropDown> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: Colors.green,
         title: Center(
           child: Text(
-            'Quiz App',
+            'Calculator App',
             style: TextStyle(
               fontSize: 30.0,
               fontWeight: FontWeight.bold,
@@ -53,12 +55,12 @@ class _DropDownState extends State<DropDown> {
             children: <Widget>[
               Container(
                 child: Text(
-                  'Select One Option ...',
+                  'Select One Level ...',
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 25.0,
                     fontFamily: 'Roboto-Italic',
-                    color: Colors.deepPurpleAccent,
+                    color: Colors.green,
                   ),
                 ),
               ),
@@ -69,11 +71,10 @@ class _DropDownState extends State<DropDown> {
                   icon: Icon(Icons.arrow_drop_down),
                   iconSize: 24,
                   elevation: 16,
-                  style:
-                      TextStyle(color: Colors.deepPurpleAccent, fontSize: 18),
+                  style: TextStyle(color: Colors.green, fontSize: 18),
                   underline: Container(
                     height: 2,
-                    color: Colors.deepPurpleAccent,
+                    color: Colors.green,
                   ),
                   onChanged: (String data) {
                     setState(() {
@@ -96,12 +97,12 @@ class _DropDownState extends State<DropDown> {
                 child: RaisedButton(
                   onPressed: () {
                     getDropDownItem();
-                    if (holder == 'True/False') {
+                    if (holder == 'Simple') {
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => null));
+                          MaterialPageRoute(builder: (context) => Simple()));
                     } else {
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => null));
+                          MaterialPageRoute(builder: (context) => Complex()));
                     }
                   },
                   shape: RoundedRectangleBorder(
@@ -110,7 +111,11 @@ class _DropDownState extends State<DropDown> {
                   child: Ink(
                     decoration: BoxDecoration(
                         gradient: LinearGradient(
-                          colors: [Color(0xff374ABE), Color(0xff64B6FF)],
+                          colors: [
+                            Colors.green,
+                            Colors.greenAccent,
+                            Colors.redAccent
+                          ],
                           begin: Alignment.centerLeft,
                           end: Alignment.centerRight,
                         ),

@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../MyHomePage.dart';
 
 Widget appBar(BuildContext context) {
   return AppBar(
-    backgroundColor: Colors,
+    backgroundColor: Colors.green,
     title: Center(
       child: Text(
-        'Quiz App',
+        'Calculator App',
         style: TextStyle(
           fontSize: 30.0,
           fontWeight: FontWeight.bold,
@@ -32,7 +33,7 @@ Widget appBar(BuildContext context) {
         ),
         onPressed: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => ScoreScreen()));
+              context, MaterialPageRoute(builder: (context) => MyHomePage()));
         },
       ),
     ],
