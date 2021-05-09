@@ -9,6 +9,7 @@ class Complexcal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Complex(),
     );
   }
@@ -22,7 +23,9 @@ class Complex extends StatefulWidget {
 }
 
 class _ComplexState extends State<Complex> {
+  List<dynamic> all = [];
   String output = "0";
+  int count = 0;
 
   String _output = "0";
   double num1 = 0.0;
@@ -38,7 +41,7 @@ class _ComplexState extends State<Complex> {
     } else if (buttonText == "+" ||
         buttonText == "-" ||
         buttonText == "/" ||
-        buttonText == "X") {
+        buttonText == "x") {
       num1 = double.parse(output);
 
       operand = buttonText;
@@ -54,18 +57,28 @@ class _ComplexState extends State<Complex> {
     } else if (buttonText == "=") {
       num2 = double.parse(output);
 
+      if (buttonText == "UNDO") {}
       if (operand == "+") {
         _output = (num1 + num2).toString();
+        all.add(_output);
+        count++;
       }
       if (operand == "-") {
         _output = (num1 - num2).toString();
+        all.add(_output);
+        count++;
       }
       if (operand == "x") {
         _output = (num1 * num2).toString();
+        all.add(_output);
+        count++;
       }
       if (operand == "/") {
         _output = (num1 / num2).toString();
+        all.add(_output);
+        count++;
       }
+      print(all);
 
       num1 = 0.0;
       num2 = 0.0;
@@ -129,7 +142,7 @@ class _ComplexState extends State<Complex> {
                   buildButton("4"),
                   buildButton("5"),
                   buildButton("6"),
-                  buildButton("X")
+                  buildButton("x")
                 ]),
                 new Row(children: [
                   buildButton("1"),
@@ -146,6 +159,10 @@ class _ComplexState extends State<Complex> {
                 new Row(children: [
                   buildButton("CLEAR"),
                   buildButton("="),
+                ]),
+                new Row(children: [
+                  buildButton("UNDO"),
+                  buildButton("REDO"),
                 ]),
               ],
             ),
