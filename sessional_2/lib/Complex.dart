@@ -49,7 +49,7 @@ class _ComplexState extends State<Complex> {
       _output = "0";
     } else if (buttonText == ".") {
       if (_output.contains(".")) {
-        print("Already conatains a decimals");
+        print("Already contains a decimals");
         return;
       } else {
         _output = _output + buttonText;
@@ -57,7 +57,6 @@ class _ComplexState extends State<Complex> {
     } else if (buttonText == "=") {
       num2 = double.parse(output);
 
-      if (buttonText == "UNDO") {}
       if (operand == "+") {
         _output = (num1 + num2).toString();
         all.add(_output);
@@ -83,6 +82,18 @@ class _ComplexState extends State<Complex> {
       num1 = 0.0;
       num2 = 0.0;
       operand = "";
+    } else if (buttonText == "UNDO") {
+      var prev = all[count - 1];
+      count--;
+      if (count == -1) {
+        print("Nothing to undo");
+        return;
+      }
+      _output = prev.toString();
+    } else if (buttonText == "REDO") {
+      var prev = all[count + 1];
+      count++;
+      _output = prev.toString();
     } else {
       _output = _output + buttonText;
     }
@@ -94,10 +105,11 @@ class _ComplexState extends State<Complex> {
     });
   }
 
-  Widget buildButton(String buttonText) {
+  Widget buildButton(String buttonText, Color clr) {
     return new Expanded(
       child: new OutlineButton(
         padding: new EdgeInsets.all(24.0),
+        hoverColor: clr,
         child: new Text(
           buttonText,
           style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
@@ -133,36 +145,36 @@ class _ComplexState extends State<Complex> {
             Column(
               children: [
                 Row(children: [
-                  buildButton("7"),
-                  buildButton("8"),
-                  buildButton("9"),
-                  buildButton("/")
+                  buildButton("7", Colors.white),
+                  buildButton("8", Colors.white),
+                  buildButton("9", Colors.white),
+                  buildButton("/", Colors.white)
                 ]),
                 new Row(children: [
-                  buildButton("4"),
-                  buildButton("5"),
-                  buildButton("6"),
-                  buildButton("x")
+                  buildButton("4", Colors.white),
+                  buildButton("5", Colors.white),
+                  buildButton("6", Colors.white),
+                  buildButton("x", Colors.white)
                 ]),
                 new Row(children: [
-                  buildButton("1"),
-                  buildButton("2"),
-                  buildButton("3"),
-                  buildButton("-")
+                  buildButton("1", Colors.white),
+                  buildButton("2", Colors.white),
+                  buildButton("3", Colors.white),
+                  buildButton("-", Colors.white)
                 ]),
                 new Row(children: [
-                  buildButton("."),
-                  buildButton("0"),
-                  buildButton("00"),
-                  buildButton("+")
+                  buildButton(".", Colors.white),
+                  buildButton("0", Colors.white),
+                  buildButton("00", Colors.white),
+                  buildButton("+", Colors.white)
                 ]),
                 new Row(children: [
-                  buildButton("CLEAR"),
-                  buildButton("="),
+                  buildButton("CLEAR", Colors.green),
+                  buildButton("=", Colors.deepOrangeAccent),
                 ]),
                 new Row(children: [
-                  buildButton("UNDO"),
-                  buildButton("REDO"),
+                  buildButton("UNDO", Colors.green),
+                  buildButton("REDO", Colors.green),
                 ]),
               ],
             ),
