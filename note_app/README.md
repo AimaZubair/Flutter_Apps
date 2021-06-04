@@ -1,16 +1,7 @@
 # note_app
 
 A new Flutter application.
+![1](https://user-images.githubusercontent.com/72137787/120811584-91000b00-c565-11eb-9a44-4dbe215fef0f.jpeg)
+![2](https://user-images.githubusercontent.com/72137787/120811644-a2491780-c565-11eb-9dcf-f72e8afb57cb.jpeg)
+![3](https://user-images.githubusercontent.com/72137787/120811663-a70dcb80-c565-11eb-83ee-dc41d0013742.jpeg)
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
