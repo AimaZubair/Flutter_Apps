@@ -23,8 +23,6 @@ class _AddDataState extends State<AddData> {
       "name": name.text,
       "mobile": mobile.text,
       "email": email.text,
-      "skill": skill.text,
-      "bloodgroup": bloodgroup.text,
       "address": address.text
     });
   }
@@ -68,18 +66,7 @@ class _AddDataState extends State<AddData> {
                       labelText: "Mobile",
                     ),
                   ),
-                  new TextField(
-                    controller: skill,
-                    decoration: new InputDecoration(
-                      labelText: "Skill",
-                    ),
-                  ),
-                  new TextField(
-                    controller: bloodgroup,
-                    decoration: new InputDecoration(
-                      labelText: "Blood Group",
-                    ),
-                  ),
+    
                   new TextField(
                     controller: address,
                     decoration: new InputDecoration(
